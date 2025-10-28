@@ -1,1 +1,1 @@
-The protagonist, "Xiao Yang," accidentally activates the time machine in the school laboratory. The machine malfunctions — he is randomly transported to different countries and eras! However, each timeline is "crossed": future items appear in ancient times, ancient people take selfies with phones, or robots sell pizza in ancient Rome... Players must help Xiao Lin identify the "inconsistencies" in the scenes in order to fix the temporal errors and return to the present.
+111
