@@ -1,11 +1,9 @@
-Level 1: A Strange Morning at Gyeongbokgung Palace
-Scene:Kobayashi travels back to the Joseon Dynasty and arrives at Gyeongbokgung Palace. The palace looks majestic, but there are modern traces everywhere.
+Xiaolin stepped out of the palace into ancient Seoul, and past and present were all mixed together.
 Irregularities:
+1. lady in hanbok is delivering food on horseback.
 
-1。The king is holding a selfie stick.
+2.An ancient warrior is selling candied hawthorn sticks near the subway.
 
-2.A royal guard wearing sunglasses!
+3.A billboard reads, “The King’s Palace Vlog Updated!”
 
-3.There’s a bowl of instant noodles on the royal table.
-
-Story hint:Kobayashi: The king taking selfies and A royal guard wearing sunglasses!? That’s not how I remember history!
+Story hint:
