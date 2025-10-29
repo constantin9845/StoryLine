@@ -6,4 +6,4 @@ Irregularities:
 
 3.A billboard reads, “The King’s Palace Vlog Updated!”
 
-Story hint:
+Story hint:Xiaolin: Food delivery on horseback? This time machine is really broken!
