@@ -1,5 +1,5 @@
 Level 1: A Strange Morning at Gyeongbokgung Palace
-Scene:Kobayashi travels back to the Joseon Dynasty and arrives at Gyeongbokgung Palace. The palace looks majestic, but there are modern traces everywhere.
+Scene:Xiaolin travels back to the Joseon Dynasty and arrives at Gyeongbokgung Palace. The palace looks majestic, but there are modern traces everywhere.
 Irregularities:
 
 1。The king is holding a selfie stick.
@@ -8,4 +8,4 @@ Irregularities:
 
 3.There’s a bowl of instant noodles on the royal table.
 
-Story hint:Kobayashi: The king taking selfies and A royal guard wearing sunglasses!? That’s not how I remember history!
+Story hint:Xiaolin: The king taking selfies and A royal guard wearing sunglasses!? That’s not how I remember history!
