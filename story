@@ -1,12 +1,13 @@
 Scene:
-Xiaolin arrives at an ancient palace ball, but the scene is filled with various modern items, creating a strange and funny atmosphere.
-
+Xiaolin walks into the ballroom of the ancient palace, but the scene is filled with various modern items, making the whole ball look funny and bizarre.
 Irregularities (items):
-1.Neon stage decorations in the corner
 
-2.Colorful balloons hanging from the chandelier
+1Cans of drinks on the table
 
-3.Canned soda on the table
+2Wireless earphones near the court ladies
+
+3Tablet computer in the corner of the stage
 
 Story Hint:
-Xiaolin: The ancient ball is full of modern stuff—this is so weird!
+
+Xiaolin: The ancient ball is full of modern stuff—this is so strange!
