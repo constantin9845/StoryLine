@@ -4,8 +4,8 @@ Irregularities:
 
 1。The king is holding a selfie stick.
 
-2.A court lady is wearing sneakers.
+2.A royal guard wearing sunglasses!
 
 3.There’s a bowl of instant noodles on the royal table.
 
-Story hint:Kobayashi: The king taking selfies and maids wearing sneakers? That’s not how I remember history!
+Story hint:Kobayashi: The king taking selfies and A royal guard wearing sunglasses!? That’s not how I remember history!
