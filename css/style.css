@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Caveat", cursive;
+    font-style: normal;
+}
+
+.disable-mouse{
+    pointer-events: none;
+}
+
+
+#menu{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-btn{
+    width: 33.3%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-duration: 0.2s;
+
+    font-size: 48px;
+    color: #16264c;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.menu-select{
+    -webkit-box-shadow: 5px 5px 15px 5px #959595; 
+    box-shadow: 5px 5px 15px 5px #959595;
+}
+
+.story-so-far, .game-screen{
+    display: none;
+}
+
