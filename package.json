@@ -1,0 +1,25 @@
+{
+  "name": "storyline",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/constantin9845/StoryLine#readme",
+  "bugs": {
+    "url": "https://github.com/constantin9845/StoryLine/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/constantin9845/StoryLine.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
+  }
+}
