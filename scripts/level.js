@@ -38,7 +38,7 @@ window.addEventListener('keydown', (e)=>{
 window.addEventListener('keyup', (e)=>{
     e.preventDefault();
 
-    if(e.key == 'a' || e.key == 'd'){
+    if(e.key == 'a' || e.key == 'd' ){
         game.keyUpListener(e.key);
     }
 
