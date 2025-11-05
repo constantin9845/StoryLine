@@ -10,7 +10,6 @@ let transform = 0;
 const game = new gameScreen();
 
 window.addEventListener('keydown', (e)=>{
-    e.preventDefault();
 
     if(e.key == 'a' || e.key == 'd'){
         game.keyDownListener(e.key);
@@ -27,6 +26,10 @@ window.addEventListener('keydown', (e)=>{
         }
     }
 
+    if(e.key == ' '){
+        game.keyDownListener('space');
+    }
+
     if(e.key == 'Escape'){
         ipcRenderer.send('level-selection');
     }
@@ -37,6 +40,10 @@ window.addEventListener('keyup', (e)=>{
 
     if(e.key == 'a' || e.key == 'd'){
         game.keyUpListener(e.key);
+    }
+
+    if(e.key == ' '){
+        game.keyUpListener('space');
     }
 });
 

@@ -22,7 +22,7 @@ export class gameScreen{
         this.canvas.height = window.innerHeight;
 
         this.ctx = this.canvas.getContext('2d');
-        this.keyPresses = {a:false, d:false};
+        this.keyPresses = {a:false, d:false, space:false};
 
         this.CURRENT_DIR = this.FACING_DOWN;
         this.CURRENT_LOOP_INDEX = 0;
@@ -30,6 +30,7 @@ export class gameScreen{
 
         this.X = this.canvas.width/2;
         this.Y = this.canvas.height*0.94;
+        
 
         this.MID = this.canvas.width/2;
         this.WALK_RANGE = this.canvas.width*2;
@@ -38,7 +39,13 @@ export class gameScreen{
 
         this.MOVE_BG = false;
 
+        this.GRAVITY = 0.5;
+        this.JUMP_VELOCITY = -10;
+        this.VERTICAL_VELOCITY = 0;
 
+        this.isJumping = false;
+        this.isGround = true;
+        this.FLOOR = this.Y;
 
         this.spriteSheet = new Image();
 
@@ -82,6 +89,14 @@ export class gameScreen{
         )
     }
 
+    startJump(){
+        if(this.isGround){
+            this.isJumping = true;
+            this.isGround = false;
+            this.VERTICAL_VELOCITY = this.JUMP_VELOCITY;
+        }
+    }
+
     moveCharacter(deltaX, direction){
 
         console.log(`X: ${this.WALK_X}`);
@@ -89,7 +104,7 @@ export class gameScreen{
         console.log(this.WALK_RANGE-this.MID);
 
         // rules to move background
-        if(this.WALK_X > this.MID && this.WALK_X < (this.WALK_RANGE-this.MID)){
+        if(this.WALK_X >= this.MID && this.WALK_X <= (this.WALK_RANGE-this.MID)){
             this.MOVE_BG = true;
             console.log('MOVE BG!');
         }
@@ -123,6 +138,23 @@ export class gameScreen{
         else if(this.keyPresses.d){
             this.moveCharacter(this.MOVEMENT_SPEED, this.FACING_RIGHT);
             hasMoved = true;
+        }
+
+        if(this.keyPresses.space && this.isGround){
+            this.startJump();
+        }
+
+        if(!this.isGround || this.isJumping){
+            this.VERTICAL_VELOCITY += this.GRAVITY;
+
+            this.Y += this.VERTICAL_VELOCITY;
+
+            if(this.Y >= this.FLOOR){
+                this.Y = this.FLOOR;
+                this.isJumping = false;
+                this.isGround = true;
+                this.VERTICAL_VELOCITY = 0;
+            }
         }
 
         if(hasMoved){
