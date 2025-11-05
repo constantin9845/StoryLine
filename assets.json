@@ -1,0 +1,9 @@
+{
+    "default": {
+        "riddle": "What is at the end of a rainbow?",
+        "answer": "w",
+        "clues" : [[10, "Literal"], [20, "It is ehat it says it it"]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.jpg"
+    }
+}
