@@ -45,7 +45,7 @@ function waitForLevelReq(){
     })
 }
 
-window.addEventListener('keypress', (e)=>{
+window.addEventListener('keydown', (e)=>{
 
     if(game.keyMap.hasOwnProperty(e.key)){
         game.keyMap[e.key] = true;
