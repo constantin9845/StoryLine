@@ -1,5 +1,6 @@
-const { app, BrowserWindow, ipcMain, dialog } = require('electron');
-const path = require('path')
+const { app, BrowserWindow, ipcMain, dialog, ipcRenderer } = require('electron');
+const path = require('path');
+let CURRENT_LEVEL;
 
 let mainWindow;
 
@@ -33,10 +34,13 @@ ipcMain.on('exit', async(event,data)=>{
     app.quit();
 });
 
+ipcMain.on('get_current_level', (event) =>{
+    event.reply('res_current_level', CURRENT_LEVEL);
+})
+
 ipcMain.on('start-level', async(event, data)=>{
-    level = data[0];
-    console.log(level);
+    CURRENT_LEVEL = data[0];
 
     mainWindow.loadFile(`game.html`);
-    
-})
+});
+
