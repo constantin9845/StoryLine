@@ -9,44 +9,6 @@ let transform = 0;
 
 const game = new gameScreen();
 
-window.addEventListener('keydown', (e)=>{
-
-    if(e.key == 'a' || e.key == 'd'){
-        game.keyDownListener(e.key);
-
-        if(game.MOVE_BG){
-            if(e.key == 'd'){
-                transform-=10;
-                document.getElementById('front_bg').style.transform = `translateX(${transform}px)`;
-            }
-            else{
-                transform+=10;
-                document.getElementById('front_bg').style.transform = `translateX(${transform}px)`;
-            }
-        }
-    }
-
-    if(e.key == ' '){
-        game.keyDownListener('space');
-    }
-
-    if(e.key == 'Escape'){
-        ipcRenderer.send('level-selection');
-    }
-});
-
-window.addEventListener('keyup', (e)=>{
-    e.preventDefault();
-
-    if(e.key == 'a' || e.key == 'd' ){
-        game.keyUpListener(e.key);
-    }
-
-    if(e.key == ' '){
-        game.keyUpListener('space');
-    }
-});
-
 game.loadImage(game.getImage());
 
 constructLevel();
@@ -82,5 +44,23 @@ function waitForLevelReq(){
         ipcRenderer.send('get_current_level');
     })
 }
+
+window.addEventListener('keypress', (e)=>{
+
+    if(game.keyMap.hasOwnProperty(e.key)){
+        game.keyMap[e.key] = true;
+    }
+
+    if(e.key == 'Escape'){
+        ipcRenderer.send('level-selection');
+    }
+});
+
+window.addEventListener('keyup', (e)=>{
+
+    if(game.keyMap.hasOwnProperty(e.key)){
+        game.keyMap[e.key] = false;
+    }
+});
 
 
