@@ -1,5 +1,6 @@
 import { gameScreen } from '../gameAssets/gameScreen.js';
 const { ipcRenderer } = require('electron');
+const {readFile} = require('node:fs/promises')
 
 document.body.width = window.innerWidth;
 document.body.height = window.innerHeight;
@@ -23,10 +24,20 @@ async function constructLevel(){
 
     title.innerHTML = `Level ${LEVEL}`;
 
-    document.body.style.backgroundImage = `url('./level_imgs/bg.jpg')`;
+    const data = JSON.parse(await readFile('./assets.json', 'utf-8'));
+
+    let level_assests;
+    if(data[`level${LEVEL}`] == undefined){
+        level_assests = data['default'];
+    }
+    else{
+        level_assests = data[`level${LEVEL}`];
+    }
+
+    document.body.style.backgroundImage = `url('./level_imgs/${level_assests['bg']}')`;
 
     let front_bg = document.createElement('img');
-    front_bg.src = './level_imgs/front_bg.png';
+    front_bg.src = `./level_imgs/${level_assests['front_bg']}`;
     front_bg.id = 'front_bg';
 
     document.body.appendChild(front_bg);
