@@ -63,7 +63,9 @@ window.addEventListener('keydown', (e)=>{
     }
 
     if(e.key == 'Escape'){
-        ipcRenderer.send('level-selection');
+        if (window.confirm('Are you sure you want to quit the game? Progress will be lost.')) {
+            ipcRenderer.send('exit');
+        }
     }
 });
 
