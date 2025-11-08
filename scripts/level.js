@@ -1,5 +1,6 @@
 import { gameScreen } from '../gameAssets/gameScreen.js';
 const { ipcRenderer } = require('electron');
+const {readFile} = require('node:fs/promises')
 
 document.body.width = window.innerWidth;
 document.body.height = window.innerHeight;
@@ -8,37 +9,6 @@ let LEVEL = 0;
 let transform = 0;
 
 const game = new gameScreen();
-
-window.addEventListener('keydown', (e)=>{
-    e.preventDefault();
-
-    if(e.key == 'a' || e.key == 'd'){
-        game.keyDownListener(e.key);
-
-        if(game.MOVE_BG){
-            if(e.key == 'd'){
-                transform-=10;
-                document.getElementById('front_bg').style.transform = `translateX(${transform}px)`;
-            }
-            else{
-                transform+=10;
-                document.getElementById('front_bg').style.transform = `translateX(${transform}px)`;
-            }
-        }
-    }
-
-    if(e.key == 'Escape'){
-        ipcRenderer.send('level-selection');
-    }
-});
-
-window.addEventListener('keyup', (e)=>{
-    e.preventDefault();
-
-    if(e.key == 'a' || e.key == 'd'){
-        game.keyUpListener(e.key);
-    }
-});
 
 game.loadImage(game.getImage());
 
@@ -54,10 +24,20 @@ async function constructLevel(){
 
     title.innerHTML = `Level ${LEVEL}`;
 
-    document.body.style.backgroundImage = `url('./level_imgs/bg.jpg')`;
+    const data = JSON.parse(await readFile('./assets.json', 'utf-8'));
+
+    let level_assests;
+    if(data[`level${LEVEL}`] == undefined){
+        level_assests = data['default'];
+    }
+    else{
+        level_assests = data[`level${LEVEL}`];
+    }
+
+    document.body.style.backgroundImage = `url('./level_imgs/${level_assests['bg']}')`;
 
     let front_bg = document.createElement('img');
-    front_bg.src = './level_imgs/front_bg.png';
+    front_bg.src = `./level_imgs/${level_assests['front_bg']}`;
     front_bg.id = 'front_bg';
 
     document.body.appendChild(front_bg);
@@ -75,5 +55,25 @@ function waitForLevelReq(){
         ipcRenderer.send('get_current_level');
     })
 }
+
+window.addEventListener('keydown', (e)=>{
+
+    if(game.keyMap.hasOwnProperty(e.key)){
+        game.keyMap[e.key] = true;
+    }
+
+    if(e.key == 'Escape'){
+        if (window.confirm('Are you sure you want to quit the game? Progress will be lost.')) {
+            ipcRenderer.send('exit');
+        }
+    }
+});
+
+window.addEventListener('keyup', (e)=>{
+
+    if(game.keyMap.hasOwnProperty(e.key)){
+        game.keyMap[e.key] = false;
+    }
+});
 
 
