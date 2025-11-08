@@ -1,40 +1,167 @@
-*{
+/* ==========================
+   HAND-DRAWN LEVEL SELECT SCREEN
+   ========================== */
+
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-family: "Caveat", cursive;
-    font-style: normal;
 }
 
-.levels{
+body {
+    background: #faf8f2;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 23px,
+        rgba(0, 0, 0, 0.04) 24px
+    );
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Container */
+.levels {
     width: 100vw;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 40px;
+    padding: 20px;
+    position: relative;
 }
 
-.level-row{
+/* Row of levels */
+.level-row {
     width: 90%;
-    height: 20%;
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.level{
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+/* ==========================
+   LEVEL BUTTON (SCRIBBLE STYLE)
+   ========================== */
+.level {
+    width: 160px;
+    height: 90px;
+    background-color: #fff;
+    border: 6px solid #000;
+    border-radius: 14px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    box-shadow: 6px 6px 0 #000;
+    overflow: hidden;
+
+    /* Make the shape irregular (scribbly edges) */
+    clip-path: polygon(
+        3% 5%, 97% 2%, 99% 25%, 95% 50%, 
+        98% 75%, 97% 97%, 5% 95%, 2% 60%, 1% 30%, 3% 5%
+    );
+
+    /* subtle wobble animation for hand-drawn vibe */
+    animation: wiggle 2s infinite ease-in-out;
 }
 
-.level-select{
-    background-color: lightgray;
-
+/* "Hand-drawn" border look using layered outlines */
+.level::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+        3% 5%, 97% 2%, 99% 25%, 95% 50%, 
+        98% 75%, 97% 97%, 5% 95%, 2% 60%, 1% 30%, 3% 5%
+    );
+    pointer-events: none;
+    animation: scribble 1.5s infinite ease-in-out alternate;
 }
 
+/* Wiggle animation: subtle random movement */
+@keyframes wiggle {
+    0% { transform: rotate(-0.5deg) translate(-1px, 0); }
+    25% { transform: rotate(0.5deg) translate(1px, 0); }
+    50% { transform: rotate(-0.3deg) translate(0, 1px); }
+    75% { transform: rotate(0.3deg) translate(-1px, -1px); }
+    100% { transform: rotate(-0.5deg) translate(-1px, 0); }
+}
+
+/* Slight irregular redrawing animation for the border */
+@keyframes scribble {
+    0% {
+        clip-path: polygon(3% 5%, 97% 2%, 99% 25%, 95% 50%, 98% 75%, 97% 97%, 5% 95%, 2% 60%, 1% 30%, 3% 5%);
+    }
+    50% {
+        clip-path: polygon(4% 4%, 96% 3%, 98% 27%, 94% 49%, 99% 73%, 96% 96%, 4% 94%, 3% 59%, 2% 31%, 4% 4%);
+    }
+    100% {
+        clip-path: polygon(3% 5%, 97% 2%, 99% 25%, 95% 50%, 98% 75%, 97% 97%, 5% 95%, 2% 60%, 1% 30%, 3% 5%);
+    }
+}
+
+.level::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    filter: blur(0.3px);
+    transform: rotate(1deg);
+    pointer-events: none;
+}
+
+/* Placeholder for background doodle/picture */
+.level .level-bg {
+    position: absolute;
+    inset: 0;
+    background: url("your-image.jpg") center/cover no-repeat;
+    opacity: 0.3;
+    filter: grayscale(0.5) contrast(0.9);
+    pointer-events: none;
+}
+
+/* Text inside button */
+.level span {
+    position: relative;
+    z-index: 2;
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 2px 8px;
+    margin-bottom: 8px;
+}
+
+/* Hover & active effects */
+.level:hover {
+    transform: translate(-3px, -3px) rotate(-1deg);
+    box-shadow: 6px 6px 0 #000;
+}
+
+.level:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #000;
+}
+
+/* Different states */
+.level.locked {
+    background: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+.level.selected {
+    background: #fffce1;
+    box-shadow: 5px 5px 0 #000;
+    transform: rotate(1deg);
+    border: 3px solid #000;
+}
