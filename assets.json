@@ -2,14 +2,14 @@
     "default": {
         "riddle": "What is at the end of a rainbow?",
         "answer": "w",
-        "clues" : [[50, "Literal"], [1100, "1100 position"],[0, ""]],
+        "clues" : [[150, "Literal"], [1100, "1100 position"],[0, ""]],
         "bg" : "bg.jpg",
         "front_bg": "front_bg.png"
     },
     "level1": {
         "riddle": "This is level 1.",
         "answer": "w",
-        "clues" : [[10, "Literal"], [820, "It is ehat it says it it"], [0, ""]],
+        "clues" : [[150, "Literal"], [820, "It is what it says it it"], [0, ""]],
         "bg" : "bg.jpg",
         "front_bg": "front_bg.png"
     }
