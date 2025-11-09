@@ -4,6 +4,13 @@
         "answer": "w",
         "clues" : [[10, "Literal"], [20, "It is ehat it says it it"]],
         "bg" : "bg.jpg",
-        "front_bg": "front_bg.jpg"
+        "front_bg": "front_bg.png"
+    },
+    "level1": {
+        "riddle": "This is level 1.",
+        "answer": "w",
+        "clues" : [[10, "Literal"], [20, "It is ehat it says it it"]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
     }
 }

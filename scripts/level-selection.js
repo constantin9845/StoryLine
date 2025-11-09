@@ -56,37 +56,25 @@ function updateLevel(direction, current){
     switch(direction){
         // up
         case 0:
-            if(curr < 5){
-                curr = (curr == 1 ? 13 : (curr == 2 ? 14 : (curr == 3 ? 15 : 16)));
-            }
-            else{
+            if(curr >= 5){
                 curr -= 4;
             }
             break;
         
         case 1:
-            if(curr % 4 == 0){
-                curr -= 3;
-            }
-            else{
+            if(curr % 4 != 0){
                 curr += 1;
             }
             break;
         
         case 2:
-            if(curr > 12){
-                curr -= 12;
-            }
-            else{
+            if(curr <= 12){
                 curr += 4;
             }
             break;
         
         case 3:
-            if(curr == 1 || curr == 5 || curr == 9 || curr == 13){
-                curr += 3;
-            }
-            else{
+            if(!(curr == 1 || curr == 5 || curr == 9 || curr == 13)){
                 curr -= 1;
             }
             break;
