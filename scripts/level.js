@@ -17,6 +17,7 @@ constructLevel();
 
 const title = document.getElementById('title');
 const canvas = document.getElementById('canvas');
+const clue = document.getElementById('clue');
 
 async function constructLevel(){
     
@@ -41,6 +42,14 @@ async function constructLevel(){
     front_bg.id = 'front_bg';
 
     document.body.appendChild(front_bg);
+
+    let riddles = []
+    for(let i = 0; i < 3; i++){
+        riddles.push(level_assests['clues'][i])
+    }
+
+    game.clues = riddles;
+
 }
 
 function waitForLevelReq(){
@@ -58,6 +67,8 @@ function waitForLevelReq(){
 
 window.addEventListener('keydown', (e)=>{
 
+    checkClue();
+
     if(game.keyMap.hasOwnProperty(e.key)){
         game.keyMap[e.key] = true;
     }
@@ -73,5 +84,22 @@ window.addEventListener('keyup', (e)=>{
         game.keyMap[e.key] = false;
     }
 });
+
+function checkClue(){
+
+    if(Math.abs((game.MID+game.clues[0][0])-game.WALK_X) < 75){
+        clue.innerHTML = `${game.clues[0][1]}`;
+        clue.style.opacity = '1';
+    }
+    else if(Math.abs((game.MID+game.clues[1][0])-game.WALK_X) < 75){
+        clue.innerHTML = `${game.clues[1][1]}`;
+        clue.style.opacity = '1';
+    }
+    else{
+        clue.style.opacity = '0';
+        //clue.innerHTML = ` `;
+    }
+
+}
 
 

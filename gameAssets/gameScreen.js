@@ -54,6 +54,8 @@ export class gameScreen{
             ' ' : false
         }
 
+        this.clues;
+
         this.backgroundTransform = 0;
 
         this.spriteSheet = new Image();
