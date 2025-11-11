@@ -6,6 +6,7 @@ document.body.width = window.innerWidth;
 document.body.height = window.innerHeight;
 
 let LEVEL = 0;
+let PAUSE = false;
 let transform = 0;
 
 const game = new gameScreen();
@@ -64,15 +65,40 @@ function waitForLevelReq(){
     })
 }
 
+const pauseWidow = document.getElementById('pause')
+
 window.addEventListener('keydown', (e)=>{
 
-    if(game.keyMap.hasOwnProperty(e.key)){
-        game.keyMap[e.key] = true;
+    if(!PAUSE){
+        if(game.keyMap.hasOwnProperty(e.key)){
+            game.keyMap[e.key] = true;
+        }
+        else if(e.key === 'Escape'){
+            let text = document.createElement('p');
+            text.id = 'warning'
+            text.innerHTML = "Are you sure you want to quit?";
+
+            pauseWidow.appendChild(text);
+
+            PAUSE = true;
+        }
+    }
+    else{
+
+        if(e.key === 'Enter'){
+            pauseWidow.removeChild(document.getElementById('warning'));
+            ipcRenderer.send('level-selection');
+            PAUSE = false;
+        }
+        else if(e.key === 'Escape'){
+            // continue
+            pauseWidow.removeChild(document.getElementById('warning'));
+            PAUSE = false;
+        }
+
     }
 
-    if(e.key == 'Escape'){
-        ipcRenderer.send('level-selection');
-    }
+
 });
 
 window.addEventListener('keyup', (e)=>{
@@ -81,6 +107,8 @@ window.addEventListener('keyup', (e)=>{
         game.keyMap[e.key] = false;
     }
 });
+
+
 
 
 
