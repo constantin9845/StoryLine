@@ -150,17 +150,9 @@ body {
     box-shadow: 1px 1px 0 #000;
 }
 
-/* Different states */
-.level.locked {
-    background: #f0f0f0;
-    color: #999;
-    cursor: not-allowed;
-    box-shadow: none;
-    opacity: 0.7;
-}
 
-.level.selected {
-    background: #fffce1;
+.level-select {
+    background: #545454;
     box-shadow: 5px 5px 0 #000;
     transform: rotate(1deg);
     border: 3px solid #000;
