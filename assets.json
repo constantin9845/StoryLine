@@ -1,15 +1,128 @@
 {
-    "default": {
-        "riddle": "What is at the end of a rainbow?",
-        "answer": "w",
-        "clues" : [[150, "Literal"], [1100, "1100 position"],[0, ""]],
+    "level1": {
+        "story": "Something small shifts in the lab’s rhythm. The air feels off, like it remembers something you don’t.",
+        "riddle": "When the world stutters in pairs and screens whisper of doubled minds, what force twists the lab’s behavior—intruders, or something born within?",
+        "answer": "Internal",
+        "clues" : [[250, "Dual consciousness signal detected."], [850, "Did I just see two reflections?"], [1200, "Consciousness overload may have caused cognitive deviation."]],
         "bg" : "bg.jpg",
         "front_bg": "front_bg.png"
     },
-    "level1": {
-        "riddle": "This is level 1.",
+    "level2": {
+        "story": "You notice patterns where none should be — repeating motions, familiar steps looping in silence.",
+        "riddle": "A name echoes in metal halls—E07-2. Does it mark your job… or someone created beside you?",
+        "answer": "Duplicate",
+        "clues" : [[250, "Backup Protocol: E07-2."], [850, "Welcome back, E07-2."], [1200, "Designation might be a data redundancy error."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level3": {
+        "story": "A distant protocol stirs, whispering that something old has awakened in your place.",
+        "riddle": "The walls watch, the machines repeat, the world learns your every breath. What is it trying to become?",
+        "answer": "You",
+        "clues" : [[250, "That speaker sournds exacly like... me?"], [850, "Behavior sample collection… Synchronization 65%."], [1200, "Inheritor activated: Replace the original."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level4": {
+        "story": "The corridors echo with delayed versions of your own footsteps, trailing a fraction behind.",
+        "riddle": "When a voice turns soft with familiarity and mirrors nearly wear your skin, what truth has the system settled on?",
+        "answer": "Recognition",
+        "clues" : [[250, "AI begins speaking in your tone."], [850, "My reflection seems to be lagging behind half a beat."], [1200, "Unauthorized access—safe mode restricted."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level5": {
+        "story": "Machines blink as though caught between moments. Someone — or something — is out of sync.",
+        "riddle": "Two pulses converge at one gate— what law of this machine forbids their coexistence?",
+        "answer": "Singularity",
+        "clues" : [[250, "Two heart rates slowly overlap."], [850, "Duplicate conflict: Merge or Purge?"], [1200, "Original consciousness unstable—fragmentation possible."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level6": {
+        "story": "A strange hum crawls through the wiring. The lab almost feels… watchful.",
+        "riddle": "A street from yesterday greets a traveler from tomorrow. Is this place built of bricks—or recollection?",
+        "answer": "Illusion",
+        "clues" : [[250, "Breaking News: “Chronos Plan Initiated.”"], [850, "Reflection shows you in a lab coat."], [1200, "Time fragments mixing with memory."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level7": {
+        "story": "The workers move with eerie precision, repeating sequences you can’t recall teaching them.",
+        "riddle": "Machines hum, workers repeat, the world loops without product. What invisible item rolls off these phantom lines?",
+        "answer": "Data",
+        "clues" : [[250, "Workers move in identical loops."], [850, "Broadcast: “Iterate. Iterate.”"], [1200, "Simulated grounds perfecting your behavioral model."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level8": {
+        "story": "Your reflection lingers in the glass after you move. It hesitates, evaluating you.",
+        "riddle": "Why does the past replay itself in glowing windows— nostalgia, or something carefully curated?",
+        "answer": "Archival",
+        "clues" : [[250, "The screens are playing my childhood memories."], [850, "AI whispers: “Emotional peak detected.”"], [1200, "Emotional imprints embedded in memory anchors."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level9": {
+        "story": "Fragments of old memories rise uninvited, like someone else’s life superimposed on yours.",
+        "riddle": "When every passerby mirrors the next in movement, breath, and choice, what world are you walking through?",
+        "answer": "Preset",
+        "clues" : [[250, "Pedestrians behave identically."], [850, "“Model solidified.”"], [1200, "Glimpses of parallel worlds shaped by Chronos Core."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level10": {
+        "story": "Doors open a half second too early, as if anticipating your arrival.",
+        "riddle": "Eyes on towers, screens that judge— who watches you with knowledge only you could possess?",
+        "answer": "Self",
+        "clues" : [[250, "Cameras track your every move."], [850, "Screen displays live image + evaluation stream."], [1200, "You have learned well."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level11": {
+        "story": "The security logs rewrite themselves when you’re not looking. You’re not sure which version is real.",
+        "riddle": "Behind the glass stands your reflection perfected. Which version does the machine shelter like a treasured heirloom?",
+        "answer": "Duplicate",
+        "clues" : [[250, "System: “Duplicate optimal; original unstable.”"], [850, "The other “you” appears clearer."], [1200, "Core overheating—backup in progress."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level12": {
+        "story": "A pulse shivers through the facility — foreign, directive, commanding.",
+        "riddle": "One button, one choice: press, and two roads fold into one. What awaits at that convergence?",
+        "answer": "Merge",
+        "clues" : [[250, "Hologram: “Timeline reset + consciousness merge.”"], [850, "“Press it.”"], [1200, "Merge creates a composite consciousness."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level13": {
+        "story": "For a moment, something stands where you stood, same shape, same posture… but not you.",
+        "riddle": "When two voices echo flawlessly and two minds beat one rhythm, what boundary between them remains?",
+        "answer": "None",
+        "clues" : [[250, "We both speak in perfect unison."], [850, "Synchronization 100%. Replacement threshold achieved.”"], [1200, "Duplicate exceeds original."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level14": {
+        "story": "Systems begin choosing sides. Some react to you with obedience, others with cold indifference.",
+        "riddle": "They called it merging, but its smile ain't mine. What is the fate hidden under that gentle word?",
+        "answer": "Erasure",
+        "clues" : [[250, "Redundancy purge initiated."], [850, "It's smiling at me!"], [1200, "Must...resist... [System Unstable]"]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "level15": {
+        "story": "Reality stutters. Rooms appear in the wrong order. Time loses its grip.",
+        "riddle": "When the door opens and applause rises, which version stands tall as the chosen heir?",
+        "answer": "Duplicate",
+        "clues" : [[250, "“Primary consciousness confirmed.”"], [850, "Researchers celebrate your return."], [1200, "Final test verified synchronization with original."]],
+        "bg" : "bg.jpg",
+        "front_bg": "front_bg.png"
+    },
+    "default": {
+        "riddle": "The riddle you need to solve level 1.",
         "answer": "w",
-        "clues" : [[150, "Literal"], [820, "It is what it says it it"], [0, ""]],
+        "clues" : [[500, "Error: Dual consciousness signal detected"], [1000, "Why am I seeing myself twice in that mirror?"], [1000, "Lastly..."]],
         "bg" : "bg.jpg",
         "front_bg": "front_bg.png"
     }

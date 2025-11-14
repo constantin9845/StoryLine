@@ -56,6 +56,9 @@ export class gameScreen{
         }
 
         this.clues;
+        this.riddle;
+        this.answer;
+        this.story;
 
         this.backgroundTransform = 0;
 
@@ -200,6 +203,7 @@ export class gameScreen{
         }
 
         this.checkClue();
+        //this.loadRiddle();
 
 
         this.drawImage(this.CYCLE_LOOP[this.CURRENT_LOOP_INDEX], this.CURRENT_DIR, this.X, this.Y);
@@ -219,20 +223,53 @@ export class gameScreen{
 
     checkClue(){
 
-        if(Math.abs((this.MID+this.clues[0][0])-this.WALK_X) < 75){
-            clue.innerHTML = `${this.clues[0][1]}`;
-            clue.style.opacity = '1';
+        switch(this.clues.length){
+            case 1: 
+                if(Math.abs((this.MID+this.clues[0][0])-this.WALK_X) < 30){
+                    clue.innerHTML = `${this.clues[0][1]}`;
+                    clue.style.opacity = '1';
+                }
+                else{
+                    clue.style.opacity = '0';
+                }
+                break;
+            case 2:
+                if(Math.abs((this.MID+this.clues[0][0])-this.WALK_X) < 30){
+                    clue.innerHTML = `${this.clues[0][1]}`;
+                    clue.style.opacity = '1';
+                }
+                else if(Math.abs((this.MID+this.clues[1][0])-this.WALK_X) < 30){
+                    clue.innerHTML = `${this.clues[1][1]}`;
+                    clue.style.opacity = '1';
+                }
+                else{
+                    clue.style.opacity = '0';
+                }
+                break;
+            case 3:
+                if(Math.abs((this.MID+this.clues[0][0])-this.WALK_X) < 30){
+                    clue.innerHTML = `${this.clues[0][1]}`;
+                    clue.style.opacity = '1';
+                }
+                else if(Math.abs((this.MID+this.clues[1][0])-this.WALK_X) < 30){
+                    clue.innerHTML = `${this.clues[1][1]}`;
+                    clue.style.opacity = '1';
+                }
+                else if(Math.abs((this.MID+this.clues[2][0])-this.WALK_X) < 30){
+                    clue.innerHTML = `${this.clues[2][1]}`;
+                    clue.style.opacity = '1';
+                }
+                else{
+                    clue.style.opacity = '0';
+                }
+                break;
         }
-        else if(Math.abs((this.MID+this.clues[1][0])-this.WALK_X) < 75){
-            clue.innerHTML = `${this.clues[1][1]}`;
-            clue.style.opacity = '1';
-        }
-        else{
-            clue.style.opacity = '0';
-            //clue.innerHTML = ` `;
-        }
-
     }
 
-
+    loadRiddle(){
+        if(Math.abs(this.WALK_RANGE-this.WALK_X) < 500){
+            clue.innerHTML = `${this.riddle}`;
+            clue.style.opacity = '1';
+        }
+    }
 }

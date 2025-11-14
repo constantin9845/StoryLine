@@ -1,16 +1,16 @@
-/* ==========================
-   HAND-DRAWN LEVEL SELECT SCREEN
-   ========================== */
-
-* {
+*{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     font-family: "Caveat", cursive;
+    font-style: normal;
+}
+
+.disable-mouse{
+    pointer-events: none;
 }
 
 body {
-    background: #faf8f2;
+    background: #faf9f5;
     background-image: repeating-linear-gradient(
         to bottom,
         transparent 0px,
@@ -21,10 +21,9 @@ body {
     overflow-x: hidden;
 }
 
-/* Container */
 .levels {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,7 +33,7 @@ body {
     position: relative;
 }
 
-/* Row of levels */
+
 .level-row {
     width: 90%;
     display: flex;
@@ -42,12 +41,9 @@ body {
     align-items: center;
 }
 
-/* ==========================
-   LEVEL BUTTON (SCRIBBLE STYLE)
-   ========================== */
 .level {
-    width: 160px;
-    height: 90px;
+    width: 130px;
+    height: 70px;
     background-color: #fff;
     border: 6px solid #000;
     border-radius: 14px;
@@ -67,8 +63,6 @@ body {
         98% 75%, 97% 97%, 5% 95%, 2% 60%, 1% 30%, 3% 5%
     );
 
-    /* subtle wobble animation for hand-drawn vibe */
-    animation: wiggle 2s infinite ease-in-out;
 }
 
 /* "Hand-drawn" border look using layered outlines */
@@ -82,16 +76,7 @@ body {
         98% 75%, 97% 97%, 5% 95%, 2% 60%, 1% 30%, 3% 5%
     );
     pointer-events: none;
-    animation: scribble 1.5s infinite ease-in-out alternate;
-}
-
-/* Wiggle animation: subtle random movement */
-@keyframes wiggle {
-    0% { transform: rotate(-0.5deg) translate(-1px, 0); }
-    25% { transform: rotate(0.5deg) translate(1px, 0); }
-    50% { transform: rotate(-0.3deg) translate(0, 1px); }
-    75% { transform: rotate(0.3deg) translate(-1px, -1px); }
-    100% { transform: rotate(-0.5deg) translate(-1px, 0); }
+    animation: scribble 0.5s infinite ease-in-out alternate;
 }
 
 /* Slight irregular redrawing animation for the border */
@@ -118,7 +103,6 @@ body {
     pointer-events: none;
 }
 
-/* Placeholder for background doodle/picture */
 .level .level-bg {
     position: absolute;
     inset: 0;
@@ -128,18 +112,15 @@ body {
     pointer-events: none;
 }
 
-/* Text inside button */
 .level span {
     position: relative;
     z-index: 2;
     font-size: 1.8rem;
-    background: rgba(255, 255, 255, 0.7);
     border-radius: 8px;
     padding: 2px 8px;
     margin-bottom: 8px;
 }
 
-/* Hover & active effects */
 .level:hover {
     transform: translate(-3px, -3px) rotate(-1deg);
     box-shadow: 6px 6px 0 #000;
@@ -152,8 +133,8 @@ body {
 
 
 .level-select {
-    background: #545454;
+    background: #c7c7c7;
     box-shadow: 5px 5px 0 #000;
     transform: rotate(1deg);
-    border: 3px solid #000;
+    color: white;
 }
