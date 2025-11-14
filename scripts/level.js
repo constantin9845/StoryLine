@@ -65,7 +65,9 @@ function waitForLevelReq(){
     })
 }
 
-const pauseWidow = document.getElementById('pause')
+const pauseWidow = document.createElement('div');
+pauseWidow.id = 'pause';
+document.body.appendChild(pauseWidow);
 
 window.addEventListener('keydown', (e)=>{
 
@@ -74,11 +76,17 @@ window.addEventListener('keydown', (e)=>{
             game.keyMap[e.key] = true;
         }
         else if(e.key === 'Escape'){
+            pauseWidow.style.display = 'flex';
             let text = document.createElement('p');
             text.id = 'warning'
             text.innerHTML = "Are you sure you want to quit?";
 
+            let p = document.createElement('p');
+            p.id = 'confirm';
+            p.innerHTML = "Press: [ Enter (quit) | Escape (continue) ]"
+
             pauseWidow.appendChild(text);
+            pauseWidow.appendChild(p);
 
             PAUSE = true;
         }
@@ -87,12 +95,16 @@ window.addEventListener('keydown', (e)=>{
 
         if(e.key === 'Enter'){
             pauseWidow.removeChild(document.getElementById('warning'));
+            pauseWidow.removeChild(document.getElementById('confirm'));
+            pauseWidow.style.display = 'none';
             ipcRenderer.send('level-selection');
             PAUSE = false;
         }
         else if(e.key === 'Escape'){
             // continue
             pauseWidow.removeChild(document.getElementById('warning'));
+            pauseWidow.removeChild(document.getElementById('confirm'));
+            pauseWidow.style.display = 'none';
             PAUSE = false;
         }
 
