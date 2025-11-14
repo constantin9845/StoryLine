@@ -6,6 +6,7 @@ document.body.width = window.innerWidth;
 document.body.height = window.innerHeight;
 
 let LEVEL = 0;
+let PAUSE = false;
 let transform = 0;
 
 const game = new gameScreen();
@@ -41,6 +42,14 @@ async function constructLevel(){
     front_bg.id = 'front_bg';
 
     document.body.appendChild(front_bg);
+
+    let riddles = []
+    for(let i = 0; i < 3; i++){
+        riddles.push(level_assests['clues'][i])
+    }
+
+    game.clues = riddles;
+
 }
 
 function waitForLevelReq(){
@@ -56,17 +65,40 @@ function waitForLevelReq(){
     })
 }
 
+const pauseWidow = document.getElementById('pause')
+
 window.addEventListener('keydown', (e)=>{
 
-    if(game.keyMap.hasOwnProperty(e.key)){
-        game.keyMap[e.key] = true;
-    }
+    if(!PAUSE){
+        if(game.keyMap.hasOwnProperty(e.key)){
+            game.keyMap[e.key] = true;
+        }
+        else if(e.key === 'Escape'){
+            let text = document.createElement('p');
+            text.id = 'warning'
+            text.innerHTML = "Are you sure you want to quit?";
 
-    if(e.key == 'Escape'){
-        if (window.confirm('Are you sure you want to quit the game? Progress will be lost.')) {
-            ipcRenderer.send('exit');
+            pauseWidow.appendChild(text);
+
+            PAUSE = true;
         }
     }
+    else{
+
+        if(e.key === 'Enter'){
+            pauseWidow.removeChild(document.getElementById('warning'));
+            ipcRenderer.send('level-selection');
+            PAUSE = false;
+        }
+        else if(e.key === 'Escape'){
+            // continue
+            pauseWidow.removeChild(document.getElementById('warning'));
+            PAUSE = false;
+        }
+
+    }
+
+
 });
 
 window.addEventListener('keyup', (e)=>{
@@ -75,5 +107,8 @@ window.addEventListener('keyup', (e)=>{
         game.keyMap[e.key] = false;
     }
 });
+
+
+
 
 

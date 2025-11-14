@@ -17,6 +17,7 @@ export class gameScreen{
         this.MOVEMENT_SPEED = 4;
 
         this.canvas = document.getElementById('canvas');
+        this.clueWindow = document.getElementById('clue');
 
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
@@ -53,6 +54,8 @@ export class gameScreen{
             'd' : false,
             ' ' : false
         }
+
+        this.clues;
 
         this.backgroundTransform = 0;
 
@@ -196,6 +199,8 @@ export class gameScreen{
             this.X = this.WALK_X;
         }
 
+        this.checkClue();
+
 
         this.drawImage(this.CYCLE_LOOP[this.CURRENT_LOOP_INDEX], this.CURRENT_DIR, this.X, this.Y);
         window.requestAnimationFrame(this.gameLoop);
@@ -210,6 +215,23 @@ export class gameScreen{
             window.requestAnimationFrame(loop);
         };
         window.requestAnimationFrame(loop);
+    }
+
+    checkClue(){
+
+        if(Math.abs((this.MID+this.clues[0][0])-this.WALK_X) < 75){
+            clue.innerHTML = `${this.clues[0][1]}`;
+            clue.style.opacity = '1';
+        }
+        else if(Math.abs((this.MID+this.clues[1][0])-this.WALK_X) < 75){
+            clue.innerHTML = `${this.clues[1][1]}`;
+            clue.style.opacity = '1';
+        }
+        else{
+            clue.style.opacity = '0';
+            //clue.innerHTML = ` `;
+        }
+
     }
 
 
