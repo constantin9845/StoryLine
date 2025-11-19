@@ -1,4 +1,5 @@
 import { gameScreen } from '../gameAssets/gameScreen.js';
+import { riddle } from '../gameAssets/riddle.js';
 const { ipcRenderer } = require('electron');
 const {readFile} = require('node:fs/promises')
 
@@ -15,6 +16,8 @@ const game = new gameScreen();
 game.loadImage(game.getImage());
 
 constructLevel();
+
+let riddleW;
 
 
 const title = document.getElementById('title');
@@ -53,6 +56,9 @@ async function constructLevel(){
     game.riddle = level_assests['riddle'];
     game.answer = level_assests['answer'];
     game.story = level_assests['story'];
+
+    // create riddle object
+    riddleW = new riddle(level_assests);
 
 }
 
@@ -107,6 +113,20 @@ window.addEventListener('keydown', (e)=>{
         // enter riddle mode
         if(e.key === 'e'){
             RIDDLE_STATE = true;
+            riddleWindow.appendChild(riddleW.create_riddle());
+
+            if(riddleW.type == 1){
+                riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>[...] start typing`;
+            }
+            else if(riddleW.type == 2){
+                document.getElementById(`band${riddleW.Sequence_col}`).style.backgroundColor = 'red';
+                riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>Use [a,w,s,d] to find the right combination`;
+            }
+            else{
+                riddle_content.innerHTML = `press [Esc] to leave<br>press [Space] to submit`;
+            }
+
+            return;
         }
     }
     else if(Math.abs(game.WALK_RANGE-game.WALK_X) > 500){
@@ -116,11 +136,63 @@ window.addEventListener('keydown', (e)=>{
     if(RIDDLE_STATE){
         if(e.key === 'Escape'){
             RIDDLE_STATE = false; 
+
+            riddleWindow.removeChild(riddleWindow.childNodes[1]);
             riddle_content.innerHTML = 'Press [e] to start riddle';
+            return;
         }
-        else{
-            riddle_content.innerHTML = `${game.riddle}\n(press [Esc] to leave)`;
+
+        switch(riddleW.type){
+            case 0:
+                if(e.key === 'a' || e.key === 'd'){
+                    riddleW.update_MCQ(e.key);
+                }
+
+                if(e.key === ' '){
+                    if(riddleW.check_input()){
+                        alert("Correct!");
+                    }
+                    else{
+                        alert("Wrong!");
+                    }
+                    
+                }
+                break;
+
+            case 1:
+                riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>[...] start typing`;
+                if(e.key != 'Enter'){
+                    if(e.key != 'Shift' && e.key != 'Alt' && e.key != 'Control'){
+                        riddleW.update_Enter(e.key);
+                    }
+                    
+                }
+                if(e.key == 'Enter'){
+                    if(riddleW.check_input()){
+                        alert("correct!");
+                    }
+                    else{
+                        riddle_content.innerHTML = `INCORRECT!`;
+                    }
+                    riddleW.empty_Enter();
+                }
+                break;
+            case 2:
+                riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>Use [a,w,s,d] to find the right combination`;
+                if(e.key == 'Enter'){
+                    if(riddleW.check_input()){
+                        alert("correct!");
+                    }
+                    else{
+                        riddle_content.innerHTML = `INCORRECT!`;
+                    }
+                }
+                else if(e.key == 'a' || e.key == 'w' || e.key == 'd' || e.key == 's'){
+                    riddleW.update_Wheel(e.key);
+                }
         }
+        
+        
         return;
     }
 
