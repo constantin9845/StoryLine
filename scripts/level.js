@@ -1,7 +1,10 @@
 import { gameScreen } from '../gameAssets/gameScreen.js';
 import { riddle } from '../gameAssets/riddle.js';
+import { DB } from '../gameAssets/db_handler.js';
+
+
 const { ipcRenderer } = require('electron');
-const {readFile} = require('node:fs/promises')
+const {readFile} = require('node:fs/promises');
 
 document.body.width = window.innerWidth;
 document.body.height = window.innerHeight;
@@ -59,6 +62,12 @@ async function constructLevel(){
 
     // create riddle object
     riddleW = new riddle(level_assests);
+
+    // level database 
+    let temp = []
+    for(let i = 0; i < 15; i++){
+        temp.push(data[`level${i+1}`]['answer']);
+    }
 
 }
 
@@ -150,7 +159,9 @@ window.addEventListener('keydown', (e)=>{
 
                 if(e.key === ' '){
                     if(riddleW.check_input()){
-                        alert("Correct!");
+                        DB.addClue(LEVEL);
+                        alert('Correct!')
+                        ipcRenderer.send('level-selection')
                     }
                     else{
                         alert("Wrong!");
@@ -169,7 +180,9 @@ window.addEventListener('keydown', (e)=>{
                 }
                 if(e.key == 'Enter'){
                     if(riddleW.check_input()){
+                        DB.addClue(LEVEL);
                         alert("correct!");
+                        ipcRenderer.send('level-selection')
                     }
                     else{
                         riddle_content.innerHTML = `INCORRECT!`;
@@ -181,7 +194,9 @@ window.addEventListener('keydown', (e)=>{
                 riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>Use [a,w,s,d] to find the right combination`;
                 if(e.key == 'Enter'){
                     if(riddleW.check_input()){
+                        DB.addClue(LEVEL);
                         alert("correct!");
+                        ipcRenderer.send('level-selection')
                     }
                     else{
                         riddle_content.innerHTML = `INCORRECT!`;

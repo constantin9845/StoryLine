@@ -28,6 +28,10 @@ ipcMain.on('level-selection', async(event,data)=>{
     mainWindow.loadFile('level-selection.html');
 });
 
+ipcMain.on('story-page', async(event,data)=>{
+    mainWindow.loadFile('story.html');
+});
+
 ipcMain.on('menu', async(event,data)=>{
     mainWindow.loadFile('index.html');
 });

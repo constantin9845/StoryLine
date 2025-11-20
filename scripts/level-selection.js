@@ -1,4 +1,7 @@
 const { ipcRenderer } = require('electron');
+import { DB } from '../gameAssets/db_handler.js';
+
+showFinished();
 
 document.addEventListener('keydown', (e)=>{
 
@@ -44,6 +47,9 @@ document.addEventListener('keydown', (e)=>{
             break;
 
         case 'Space':
+            if(document.getElementById(`l${currentLevel}`).classList.contains('blocked')){
+                return;
+            }
             ipcRenderer.send(`start-level`, [currentLevel]);
             break;
     }
@@ -89,4 +95,17 @@ function selectionEffect(prev, next){
 
     document.getElementById(`l${prev}`).classList.remove('level-select');
     document.getElementById(`l${next}`).classList.add('level-select');
+}
+
+async function showFinished(){
+    let t = await DB.checkFound();
+
+    for(let i = 0; i <= t; i++){
+        const button = document.getElementById(`l${i+1}`);
+        button.classList.remove('blocked');
+    }
+
+    if(t == 0){
+        document.getElementById(`l1`).classList.remove('blocked')
+    }
 }
