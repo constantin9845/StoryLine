@@ -138,3 +138,7 @@ body {
     transform: rotate(1deg);
     color: white;
 }
+
+.blocked{
+    opacity: 0.3;
+}
