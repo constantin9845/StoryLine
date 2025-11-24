@@ -35,7 +35,7 @@ export class DB{
             }
         }
 
-        return 14;
+        return 15;
     }
 
     static async reset(){
@@ -55,6 +55,11 @@ export class DB{
             }
         }
         return true;
+    }
+
+    static async solution(){
+        const data = JSON.parse(await readFile('./db.json', 'utf-8'));
+        return data['correct_order'];
     }
 
 }

@@ -2,6 +2,7 @@ const { ipcRenderer } = require('electron');
 import { DB } from '../gameAssets/db_handler.js';
 
 let cluesData = [];
+let solution = [];
 
 getClues();
 
@@ -13,6 +14,9 @@ document.querySelector('.found-clues').style.backgroundColor = 'yellow';
 
 // clue navigation
 let currentClue = 1;
+
+// pin navigation
+let currentPin = 1;
 
 // Check for selecting Clue tab and Queue
 document.addEventListener('keydown', (e)=>{
@@ -48,6 +52,9 @@ document.addEventListener('keydown', (e)=>{
                     document.querySelector('.found-clues').style.opacity = '0.1';
                     return;
                 }
+
+            case 'Escape':
+                ipcRenderer.send('menu');
         }
     }
     if(clueWindow){
@@ -77,6 +84,7 @@ document.addEventListener('keydown', (e)=>{
             case 'Space':
                 console.log(`Selected clue ${currentClue}`);
                 queueClue(currentClue, cluesData[currentClue-1][0]);
+                currentPin = 1;
                 return;
 
             case 'Escape':
@@ -90,6 +98,8 @@ document.addEventListener('keydown', (e)=>{
     else if(queueWindow){
         document.querySelector('.found-clues').style.opacity = '0.1';
 
+        print(queue)
+
         switch(e.code){
 
             case 'Escape':
@@ -97,8 +107,32 @@ document.addEventListener('keydown', (e)=>{
                 document.querySelector('.found-clues').style.opacity = '1';
 
                 if(queue.length >= 1){
-                        document.getElementById(`pin${queue[0]}`).style.backgroundColor = 'unset';
-                    }
+                    document.getElementById(`pin${queue[0]}`).style.backgroundColor = 'unset';
+                }
+                break;
+
+            case 'ArrowLeft':
+                updatePin(0, currentPin);
+                break;
+
+            case 'ArrowRight':
+                updatePin(1, currentPin);
+                break;
+
+            case 'Space':
+                if(queue.length >= 1){
+                    removePin(currentPin);
+                }
+                break;
+            
+            case 'Enter':
+
+                if(checkSolution()){
+                    alert('Game Completed');
+                }
+                else{
+                    alert("Wrong combination");
+                }
                 break;
         }
     }
@@ -214,6 +248,7 @@ function cluesSelectEffect(prev, next){
 async function getClues(){
     let clues = await DB.getClues();
     let completed = await DB.checkFound();
+    solution = await DB.solution();
 
 
     for(let i = 0; i < completed; i++){
@@ -274,8 +309,75 @@ function queueClue(level){
     const pin = document.createElement('p');
     pin.innerHTML = `${level}.`;
     pin.id = `pin${level}`;
+    pin.className = 'pin';
 
     document.querySelector('.submit-zone').appendChild(pin);
 }
 
+function updatePin(right, level){
 
+    print(level)
+    // right
+    if(level < queue.length && right){
+        document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'unset';
+        document.getElementById(`pin${queue[level]}`).style.backgroundColor = 'red';
+        currentPin++;
+    }
+    else if(level > 1 && !right){
+        document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'unset';
+        document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = 'red';
+        currentPin--;
+    }
+}
+
+function removePin(level){
+
+    if(queue.length == 1){
+        const pin = document.getElementById(`pin${queue[0]}`);
+        document.querySelector('.submit-zone').removeChild(pin);
+
+        queue.pop();
+        currentPin = 0;
+        return;
+    }
+
+    let q = [];
+
+    for(let i = 0; i < level-1; i++){
+        q.push(queue[i]);
+    }
+    for(let i = level; i < queue.length; i++){
+        q.push(queue[i]);
+    }
+
+    const pin = document.getElementById(`pin${queue[level-1]}`);
+    document.querySelector('.submit-zone').removeChild(pin);
+
+    queue = q;
+
+    if(queue.length >= 1){
+        if(level == 1){
+            document.getElementById(`pin${queue[0]}`).style.backgroundColor = 'red';
+            currentPin = 1;
+        }
+        else{
+            document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = 'red';
+            currentPin = level-1;
+        }
+        
+    }
+}
+
+function checkSolution(){
+    if(queue.length != 15){
+        return false;
+    }
+
+    for(let i = 0; i < 15; i++){
+        if(solution[i] != queue[i]){
+            return false;
+        }
+    }
+
+    return true;
+}

@@ -72,3 +72,14 @@ body{
     background-color: white;
 }
 
+.pin{
+    width: 4%;
+    height: 20%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1%;
+    border: 0.1px solid black;
+}
+
