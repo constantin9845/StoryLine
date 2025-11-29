@@ -203,7 +203,6 @@ export class gameScreen{
         }
 
         this.checkClue();
-        //this.loadRiddle();
 
 
         this.drawImage(this.CYCLE_LOOP[this.CURRENT_LOOP_INDEX], this.CURRENT_DIR, this.X, this.Y);
