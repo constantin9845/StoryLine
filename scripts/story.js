@@ -17,6 +17,8 @@ let currentClue = 1;
 // pin navigation
 let currentPin = 1;
 
+hoverOptions(1)
+
 // Check for selecting Clue tab and Queue
 document.addEventListener('keydown', (e)=>{
 
@@ -90,7 +92,8 @@ document.addEventListener('keydown', (e)=>{
             case 'Escape':
                 clueWindow = false;
                 document.querySelector('.submit-zone').style.opacity = '1';
-                document.getElementById(`clue${currentClue-1}`).style.backgroundColor = 'unset';
+                document.getElementById(`clue${currentClue-1}`).style.backgroundColor = 'white';
+                document.getElementById(`clue${currentClue-1}`).style.color = 'black';
                 currentClue = 1;
                 break;
         }
@@ -107,7 +110,9 @@ document.addEventListener('keydown', (e)=>{
                 document.querySelector('.found-clues').style.opacity = '1';
 
                 if(queue.length >= 1){
-                    document.getElementById(`pin${queue[0]}`).style.backgroundColor = 'unset';
+                    for(let i = 0; i < queue.length; i++){
+                        document.getElementById(`pin${queue[i]}`).style.backgroundColor = 'white';
+                    }
                 }
                 break;
 
@@ -243,7 +248,7 @@ function updateClue(direction, current, totalClues){
 function cluesSelectEffect(prev, next){
     document.getElementById(`clue${next-1}`).style.backgroundColor = '#121212ff';
     document.getElementById(`clue${next-1}`).style.color = "#faf9f5"
-    document.getElementById(`clue${prev-1}`).style.backgroundColor = 'unset';
+    document.getElementById(`clue${prev-1}`).style.backgroundColor = 'white';
     document.getElementById(`clue${prev-1}`).style.color = 'black';
 }
 
@@ -321,12 +326,12 @@ function updatePin(right, level){
     print(level)
     // right
     if(level < queue.length && right){
-        document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'unset';
+        document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'white';
         document.getElementById(`pin${queue[level]}`).style.backgroundColor = '#f78b8b';
         currentPin++;
     }
     else if(level > 1 && !right){
-        document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'unset';
+        document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'white';
         document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = '#f78b8b';
         currentPin--;
     }

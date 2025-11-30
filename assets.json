@@ -4,8 +4,8 @@
         "riddle": "When the world stutters in pairs and screens whisper of doubled minds, what force twists the lab’s behavior—intruders, or something born within?",
         "answer": "Internal",
         "clues" : [[250, "Dual consciousness signal detected."], [850, "Did I just see two reflections?"], [1200, "Consciousness overload may have caused cognitive deviation."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg1.png",
+        "front_bg": "front_bg1.png",
         "riddle_type" : 0,
         "answer_stubs" : ["External", "Dual", "Senseless", "Prototype"]
     },
@@ -14,8 +14,8 @@
         "riddle": "A name echoes in metal halls—E07-2. Does it mark your job… or someone created beside you?",
         "answer": "Duplicate",
         "clues" : [[250, "Backup Protocol: E07-2."], [850, "Welcome back, E07-2."], [1200, "Designation might be a data redundancy error."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg1.png",
+        "front_bg": "front_bg2.png",
         "riddle_type" : 1
     },
     "level3": {
@@ -23,8 +23,8 @@
         "riddle": "The walls watch, the machines repeat, the world learns your every breath. What is it trying to become?",
         "answer": "you",
         "clues" : [[250, "That speaker sournds exacly like... me?"], [850, "Behavior sample collection… Synchronization 65%."], [1200, "Inheritor activated: Replace the original."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg3.png",
+        "front_bg": "front_bg3.png",
         "riddle_type": 2,
         "sequences": [["__","st","ed"],["fr","s","ud"],["s","ea","ed"],["my","you","terie"],["e","eight","__"]]
     },
@@ -34,7 +34,7 @@
         "answer": "Recognition",
         "clues" : [[250, "AI begins speaking in your tone."], [850, "My reflection seems to be lagging behind half a beat."], [1200, "Unauthorized access—safe mode restricted."]],
         "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "front_bg": "front_bg4.png",
         "riddle_type": 2,
         "sequences": [["__","st","ed"],["Rec","ogn","ition"],["s","ea","ed"],["my","you","terie"],["e","eight","__"]]
     },
