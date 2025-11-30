@@ -10,7 +10,6 @@ getClues();
 let clueWindow = false;
 let queueWindow = false;
 let current = 0; // 0 = hovering over clue option
-document.querySelector('.found-clues').style.backgroundColor = 'yellow';
 
 // clue navigation
 let currentClue = 1;
@@ -41,13 +40,14 @@ document.addEventListener('keydown', (e)=>{
                 queueWindow = (current == 1);
 
                 if(clueWindow){
-                    document.getElementById(`clue0`).style.backgroundColor = 'red';
+                    document.getElementById(`clue0`).style.backgroundColor = '#121212ff';
+                    document.getElementById(`clue0`).style.color = "#faf9f5"
                     document.querySelector('.submit-zone').style.opacity = '0.1';
                     return;
                 }
                 if(queueWindow){
                     if(queue.length >= 1){
-                        document.getElementById(`pin${queue[0]}`).style.backgroundColor = 'red';
+                        document.getElementById(`pin${queue[0]}`).style.backgroundColor = '#f78b8b';
                     }
                     document.querySelector('.found-clues').style.opacity = '0.1';
                     return;
@@ -144,13 +144,13 @@ function hoverOptions(curr){
     
     // currently on clues
     if(curr){
-        document.querySelector('.found-clues').style.backgroundColor = 'yellow';
-        document.querySelector('.submit-zone').style.backgroundColor = 'white';
+        document.querySelector('.found-clues').style.backgroundColor = '#fdf0bdff';
+        document.querySelector('.submit-zone').style.backgroundColor = '#faf9f5';
         current = 0;
     }
     else{
-        document.querySelector('.found-clues').style.backgroundColor = 'white';
-        document.querySelector('.submit-zone').style.backgroundColor = 'yellow';
+        document.querySelector('.found-clues').style.backgroundColor = '#faf9f5';
+        document.querySelector('.submit-zone').style.backgroundColor = '#fdf0bdff';
         current = 1;
     }
 }
@@ -241,8 +241,10 @@ function updateClue(direction, current, totalClues){
 }
 
 function cluesSelectEffect(prev, next){
-    document.getElementById(`clue${next-1}`).style.backgroundColor = 'red';
+    document.getElementById(`clue${next-1}`).style.backgroundColor = '#121212ff';
+    document.getElementById(`clue${next-1}`).style.color = "#faf9f5"
     document.getElementById(`clue${prev-1}`).style.backgroundColor = 'unset';
+    document.getElementById(`clue${prev-1}`).style.color = 'black';
 }
 
 async function getClues(){
@@ -320,12 +322,12 @@ function updatePin(right, level){
     // right
     if(level < queue.length && right){
         document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'unset';
-        document.getElementById(`pin${queue[level]}`).style.backgroundColor = 'red';
+        document.getElementById(`pin${queue[level]}`).style.backgroundColor = '#f78b8b';
         currentPin++;
     }
     else if(level > 1 && !right){
         document.getElementById(`pin${queue[level-1]}`).style.backgroundColor = 'unset';
-        document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = 'red';
+        document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = '#f78b8b';
         currentPin--;
     }
 }
@@ -357,11 +359,11 @@ function removePin(level){
 
     if(queue.length >= 1){
         if(level == 1){
-            document.getElementById(`pin${queue[0]}`).style.backgroundColor = 'red';
+            document.getElementById(`pin${queue[0]}`).style.backgroundColor = '#f78b8b';
             currentPin = 1;
         }
         else{
-            document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = 'red';
+            document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = '#f78b8b';
             currentPin = level-1;
         }
         
