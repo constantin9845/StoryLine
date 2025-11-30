@@ -44,7 +44,7 @@
         "answer": "Singularity",
         "clues" : [[250, "Two heart rates slowly overlap."], [850, "Duplicate conflict: Merge or Purge?"], [1200, "Original consciousness unstable—fragmentation possible."]],
         "bg" : "bg5.jpg",
-        "front_bg": "front_bg5.png",
+        "front_bg": "front_bg5.jpg",
         "riddle_type":0,
         "answer_stubs":["Duality","Infinity","Availability","Eternity"]
     },
@@ -53,8 +53,8 @@
         "riddle": "A street from yesterday greets a traveler from tomorrow. Is this place built of bricks—or recollection?",
         "answer": "Illusion",
         "clues" : [[250, "Breaking News: “Chronos Plan Initiated.”"], [850, "Reflection shows you in a lab coat."], [1200, "Time fragments mixing with memory."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg5.jpg",
+        "front_bg": "front_bg6.jpg",
         "riddle_type": 2,
         "sequences": [["Ill","now","eon"],["Sick","who","aeon"],["Chr","me","oan"],["Ref","us","ee"],["A","you","ion"]]
     },
@@ -63,8 +63,8 @@
         "riddle": "Machines hum, workers repeat, the world loops without product. What invisible item rolls off these phantom lines?",
         "answer": "Data",
         "clues" : [[250, "Workers move in identical loops."], [850, "Broadcast: “Iterate. Iterate.”"], [1200, "Simulated grounds perfecting your behavioral model."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg5.jpg",
+        "front_bg": "front_bg7.jpg",
         "riddle_type": 1
     },
     "level8": {
@@ -72,8 +72,8 @@
         "riddle": "Why does the past replay itself in glowing windows— nostalgia, or something carefully curated?",
         "answer": "Archival",
         "clues" : [[250, "The screens are playing my childhood memories."], [850, "AI whispers: “Emotional peak detected.”"], [1200, "Emotional imprints embedded in memory anchors."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg5.jpg",
+        "front_bg": "front_bg8.jpg",
         "riddle_type": 0,
         "answer_stubs": ["Archimedes","Arc","Revival","Archive"]
     },
@@ -82,8 +82,8 @@
         "riddle": "When every passerby mirrors the next in movement, breath, and choice, what world are you walking through?",
         "answer": "Preset",
         "clues" : [[250, "Pedestrians behave identically."], [850, "“Model solidified.”"], [1200, "Glimpses of parallel worlds shaped by Chronos Core."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg9.jpg",
+        "front_bg": "front_bg9.png",
         "riddle_type": 1
     },
     "level10": {
@@ -91,8 +91,8 @@
         "riddle": "Eyes on towers, screens that judge— who watches you with knowledge only you could possess?",
         "answer": "Self",
         "clues" : [[250, "Cameras track your every move."], [850, "Screen displays live image + evaluation stream."], [1200, "You have learned well."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg10.png",
+        "front_bg": "front_bg10.png",
         "riddle_type": 1
     },
     "level11": {
@@ -100,8 +100,8 @@
         "riddle": "Behind the glass stands your reflection perfected. Which version does the machine shelter like a treasured heirloom?",
         "answer": "Duplicate",
         "clues" : [[250, "System: “Duplicate optimal; original unstable.”"], [850, "The other “you” appears clearer."], [1200, "Core overheating—backup in progress."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg16.png",
+        "front_bg": "front_bg11.png",
         "riddle_type": 2,
         "sequences": [["Dup","die","eon"],["Sup","lic","aeon"],["Dupe","me","eat"],["May","us","ate"],["Bo","you","ion"]]
 
@@ -111,8 +111,8 @@
         "riddle": "One button, one choice: press, and two roads fold into one. What awaits at that convergence?",
         "answer": "Merge",
         "clues" : [[250, "Hologram: “Timeline reset + consciousness merge.”"], [850, "“Press it.”"], [1200, "Merge creates a composite consciousness."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg16.png",
+        "front_bg": "front_bg12.png",
         "riddle_type": 0,
         "answer_stubs": ["Forge","Urge","Murk","Lurk"]
 
@@ -122,8 +122,8 @@
         "riddle": "When two voices echo flawlessly and two minds beat one rhythm, what boundary between them remains?",
         "answer": "None",
         "clues" : [[250, "We both speak in perfect unison."], [850, "Synchronization 100%. Replacement threshold achieved.”"], [1200, "Duplicate exceeds original."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg16.png",
+        "front_bg": "front_bg13.png",
         "riddle_type": 1
     },
     "level14": {
@@ -131,8 +131,8 @@
         "riddle": "They called it merging, but its smile ain't mine. What is the fate hidden under that gentle word?",
         "answer": "Erasure",
         "clues" : [[250, "Redundancy purge initiated."], [850, "It's smiling at me!"], [1200, "Must...resist... [System Unstable]"]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg16.png",
+        "front_bg": "front_bg14.png",
         "riddle_type": 0,
         "answer_stubs": ["Removal","Deletion","Completion","Assertion"]
     },
@@ -141,8 +141,8 @@
         "riddle": "When the door opens and applause rises, which version stands tall as the chosen heir?",
         "answer": "Rinse",
         "clues" : [[250, "“Primary consciousness confirmed.”"], [850, "Researchers celebrate your return."], [1200, "Final test verified synchronization with original."]],
-        "bg" : "bg.jpg",
-        "front_bg": "front_bg.png",
+        "bg" : "bg16.png",
+        "front_bg": "front_bg16.png",
         "riddle_type": 1
     },
     "default": {
