@@ -34,7 +34,7 @@ export class gameScreen{
         
 
         this.MID = this.canvas.width/2;
-        this.WALK_RANGE = this.canvas.width*2;
+        this.WALK_RANGE = (this.canvas.width*3)-this.MID;
         this.RANGE_MID = this.WALK_RANGE-this.MID;
         this.WALK_X = this.X;
 
