@@ -44,7 +44,7 @@
         "answer": "Singularity",
         "clues" : [[250, "Two heart rates slowly overlap."], [850, "Duplicate conflict: Merge or Purge?"], [1200, "Original consciousness unstable—fragmentation possible."]],
         "bg" : "bg5.jpg",
-        "front_bg": "front_bg5.jpg",
+        "front_bg": "front_bg5.png",
         "riddle_type":0,
         "answer_stubs":["Duality","Infinity","Availability","Eternity"]
     },
@@ -54,7 +54,7 @@
         "answer": "Illusion",
         "clues" : [[250, "Breaking News: “Chronos Plan Initiated.”"], [850, "Reflection shows you in a lab coat."], [1200, "Time fragments mixing with memory."]],
         "bg" : "bg5.jpg",
-        "front_bg": "front_bg6.jpg",
+        "front_bg": "front_bg6.png",
         "riddle_type": 2,
         "sequences": [["Ill","now","eon"],["Sick","who","aeon"],["Chr","me","oan"],["Ref","us","ee"],["A","you","ion"]]
     },
@@ -64,7 +64,7 @@
         "answer": "Data",
         "clues" : [[250, "Workers move in identical loops."], [850, "Broadcast: “Iterate. Iterate.”"], [1200, "Simulated grounds perfecting your behavioral model."]],
         "bg" : "bg5.jpg",
-        "front_bg": "front_bg7.jpg",
+        "front_bg": "front_bg7.png",
         "riddle_type": 1
     },
     "level8": {
@@ -73,7 +73,7 @@
         "answer": "Archival",
         "clues" : [[250, "The screens are playing my childhood memories."], [850, "AI whispers: “Emotional peak detected.”"], [1200, "Emotional imprints embedded in memory anchors."]],
         "bg" : "bg5.jpg",
-        "front_bg": "front_bg8.jpg",
+        "front_bg": "front_bg8.png",
         "riddle_type": 0,
         "answer_stubs": ["Archimedes","Arc","Revival","Archive"]
     },
