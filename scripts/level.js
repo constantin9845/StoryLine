@@ -1,6 +1,8 @@
-import { gameScreen } from '../gameAssets/gameScreen.js';
+//import { gameScreen } from '../gameAssets/gameScreen.js';
 import { riddle } from '../gameAssets/riddle.js';
 import { DB } from '../gameAssets/db_handler.js';
+
+import { Game } from '../gameAssets/Game.js';
 
 
 const { ipcRenderer } = require('electron');
@@ -11,20 +13,13 @@ document.body.height = window.innerHeight;
 
 let LEVEL = 0;
 let PAUSE = false;
-let RIDDLE_STATE = false;
-let transform = 0;
-
-const game = new gameScreen();
-
-game.loadImage(game.getImage());
-
-constructLevel();
-
 let riddleW;
+
+//const game = new gameScreen();
+let game;
 
 
 const title = document.getElementById('title');
-const canvas = document.getElementById('canvas');
 
 async function constructLevel(){
     
@@ -34,41 +29,31 @@ async function constructLevel(){
 
     const data = JSON.parse(await readFile('./assets.json', 'utf-8'));
 
-    let level_assests;
-    if(data[`level${LEVEL}`] == undefined){
-        level_assests = data['default'];
-    }
-    else{
-        level_assests = data[`level${LEVEL}`];
-    }
+    let level_assets =
+        data[`level${LEVEL}`] !== undefined ?
+        data[`level${LEVEL}`] :
+        data['default'];
 
-    document.body.style.backgroundImage = `url('./level_imgs/${level_assests['bg']}')`;
+    document.body.style.backgroundImage = `url('./level_imgs/${level_assets['bg']}')`;
 
     let front_bg = document.createElement('img');
-    front_bg.src = `./level_imgs/${level_assests['front_bg']}`;
+    front_bg.src = `./level_imgs/${level_assets['front_bg']}`;
     front_bg.id = 'front_bg';
 
     document.body.appendChild(front_bg);
 
     let riddles = []
-    for(let i = 0; i < level_assests['clues'].length; i++){
-        riddles.push(level_assests['clues'][i])
+    for(let i = 0; i < level_assets['clues'].length; i++){
+        riddles.push(level_assets['clues'][i])
     }
 
-    game.clues = riddles;
-    game.riddle = level_assests['riddle'];
-    game.answer = level_assests['answer'];
-    game.story = level_assests['story'];
-
-    // create riddle object
-    riddleW = new riddle(level_assests);
-
-    // level database 
-    let temp = []
-    for(let i = 0; i < 15; i++){
-        temp.push(data[`level${i+1}`]['answer']);
+    return {
+        clues: riddles,
+        riddle: level_assets['riddle'],
+        answer: level_assets['answer'],
+        story: level_assets['story'],
+        assets: level_assets
     }
-
 }
 
 function waitForLevelReq(){
@@ -79,10 +64,20 @@ function waitForLevelReq(){
         }
 
         ipcRenderer.once('res_current_level', handler);
-
         ipcRenderer.send('get_current_level');
     })
 }
+
+constructLevel().then((levelData) => {
+    game = new Game();
+
+    game.clues.setClues(levelData.clues);
+    game.clues.setRiddle(levelData.riddle);
+    game.clues.setAnswer(levelData.answer);
+    game.clues.setStory(levelData.story);
+
+    riddleW = new riddle(levelData.assets);
+});
 
 const pauseWidow = document.createElement('div');
 pauseWidow.id = 'pause';
@@ -106,22 +101,26 @@ storyWindow.appendChild(story_content);
 
 window.addEventListener('keydown', (e)=>{
 
-    if(Math.abs(game.MID-game.WALK_X) <= 100){
-        story_content.innerHTML = game.story;
+    const p = game.player;
+
+    // Diplay starting paragraph
+    if(Math.abs(p.MID-p.WALK_X) <= 150){
+        story_content.innerHTML = game.clues.story;
         storyWindow.style.display = 'flex';
     }
-    else if(Math.abs(game.MID-game.WALK_X) > 100){
+    else if(Math.abs(p.MID-p.WALK_X) > 150){
         storyWindow.style.display = 'none';
     }
 
 
-    if(Math.abs(game.WALK_RANGE-game.WALK_X) <= 500 && !RIDDLE_STATE){
+    // If not in last part and not in riddle state --> display riddle mode button
+    if(Math.abs(p.WALK_RANGE-p.WALK_X) <= 500 && !game.RIDDLE_STATE){
         riddleWindow.style.display = 'flex';
         riddle_content.innerHTML = 'Press [e] to start riddle';
         
         // enter riddle mode
         if(e.key === 'e'){
-            RIDDLE_STATE = true;
+            game.RIDDLE_STATE = true;
             riddleWindow.appendChild(riddleW.create_riddle());
 
             if(riddleW.type == 1){
@@ -138,20 +137,24 @@ window.addEventListener('keydown', (e)=>{
             return;
         }
     }
-    else if(Math.abs(game.WALK_RANGE-game.WALK_X) > 500){
+    // hide riddle mode button
+    else if(Math.abs(p.WALK_RANGE-p.WALK_X) > 500){
         riddleWindow.style.display = 'none';
     }
 
-    if(RIDDLE_STATE){
+    // after entering riddle state
+    if(game.RIDDLE_STATE){
+        // exit riddle state
         if(e.key === 'Escape'){
-            RIDDLE_STATE = false; 
-
+            game.RIDDLE_STATE = false; 
             riddleWindow.removeChild(riddleWindow.childNodes[1]);
             riddle_content.innerHTML = 'Press [e] to start riddle';
             return;
         }
 
+        // check what type of riddle
         switch(riddleW.type){
+            // MCQ
             case 0:
                 if(e.key === 'a' || e.key === 'd'){
                     riddleW.update_MCQ(e.key);
@@ -169,7 +172,7 @@ window.addEventListener('keydown', (e)=>{
                     
                 }
                 break;
-
+            // Entering a word
             case 1:
                 riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>[...] start typing`;
                 if(e.key != 'Enter'){
@@ -190,6 +193,7 @@ window.addEventListener('keydown', (e)=>{
                     riddleW.empty_Enter();
                 }
                 break;
+            // match sequence
             case 2:
                 riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>Use [a,w,s,d] to find the right combination`;
                 if(e.key == 'Enter'){
@@ -207,14 +211,15 @@ window.addEventListener('keydown', (e)=>{
                 }
         }
         
-        
         return;
     }
 
-    if(!PAUSE && !RIDDLE_STATE){
-        if(game.keyMap.hasOwnProperty(e.key)){
-            game.keyMap[e.key] = true;
+    // During free walk
+    if(!PAUSE && !game.RIDDLE_STATE){
+        if(game.input.isPressed(e.key)){
+            game.input.keyMap[e.key] = true;
         }
+        // exit game?
         else if(e.key === 'Escape'){
             riddleWindow.style.display = 'none';
             storyWindow.style.display = 'none';
@@ -253,8 +258,8 @@ window.addEventListener('keydown', (e)=>{
 
 window.addEventListener('keyup', (e)=>{
 
-    if(game.keyMap.hasOwnProperty(e.key)){
-        game.keyMap[e.key] = false;
+    if(game.input.isPressed(e.key)){
+        game.input.keyMap[e.key] = false;
     }
 });
 
