@@ -3,7 +3,7 @@ export class gameScreen{
     constructor(){
         this.SCALE = 2.5;
         this.WIDTH = 16;
-        this.HEIGHT = 18;
+        this.HEIGHT = 16;
 
         this.scaled_width = this.SCALE * this.WIDTH;
         this.scaled_height = this.SCALE * this.HEIGHT;
@@ -71,29 +71,36 @@ export class gameScreen{
             console.log("Assets loaded. Game starting...");
             this.startLoop();
         };
+
+        this.characterRow = 0; 
+        this.characterCol = 2; 
     }
 
     getImage(){return this.spriteSheet;}
 
     loadImage(image){
-        image.src = 'https://opengameart.org/sites/default/files/Green-Cap-Character-16x18.png';
+        image.src = 'https://opengameart.org/sites/default/files/tiny16_expaned_again.png';
         image.onload = ()=>{
             window.requestAnimationFrame(this.gameLoop);
         }
     }
 
     drawImage(frameX, frameY, canvasX, canvasY){
+
+        const sheetX = (this.characterCol + frameX) * this.WIDTH;
+        const sheetY = (this.characterRow + frameY) * this.HEIGHT;
+
         this.ctx.drawImage(
             this.spriteSheet,
-            frameX * this.WIDTH,
-            frameY * this.HEIGHT,
+            sheetX,
+            sheetY,
             this.WIDTH,
             this.HEIGHT,
             canvasX,
             canvasY,
             this.scaled_width,
             this.scaled_height
-        )
+        );
     }
 
     startJump(){
@@ -105,11 +112,6 @@ export class gameScreen{
     }
 
     moveCharacter(deltaX, direction){
-
-        console.log("MID = "+this.MID);
-        console.log("WALK X = "+this.WALK_X);
-        console.log('MID_RANGE = '+this.RANGE_MID);
-        console.log('WALK RANGE = '+this.WALK_RANGE);
 
         this.WALK_X += deltaX;
         this.WALK_X = Math.max(0, Math.min(this.WALK_X, this.WALK_RANGE-25));
@@ -185,8 +187,6 @@ export class gameScreen{
         document.getElementById('front_bg').style.transform = 
             `translateX(${this.backgroundTransform}px)`;
 
-
-        let cameraOffset;
 
         if(this.WALK_X > this.MID && this.WALK_X < this.RANGE_MID){
             cameraOffset = this.WALK_X - this.MID;

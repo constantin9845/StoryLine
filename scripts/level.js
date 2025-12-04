@@ -121,7 +121,10 @@ window.addEventListener('keydown', (e)=>{
         // enter riddle mode
         if(e.key === 'e'){
             game.RIDDLE_STATE = true;
-            riddleWindow.appendChild(riddleW.create_riddle());
+            let ridt = riddleW.create_riddle();
+            riddleWindow.appendChild(ridt);
+            riddleWindow.style.width = '70vw';
+            riddleWindow.style.height = '50vh';
 
             if(riddleW.type == 1){
                 riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>[...] start typing`;
@@ -147,6 +150,9 @@ window.addEventListener('keydown', (e)=>{
         // exit riddle state
         if(e.key === 'Escape'){
             game.RIDDLE_STATE = false; 
+            riddleWindow.style.width = '30%';
+            riddleWindow.style.height = 'unset';
+
             riddleWindow.removeChild(riddleWindow.childNodes[1]);
             riddle_content.innerHTML = 'Press [e] to start riddle';
             return;
