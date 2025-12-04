@@ -12,6 +12,11 @@ export class DB{
         return data[`clues`];
     }
 
+    static async explain(){
+        const data = JSON.parse(await readFile('./db.json', 'utf-8'));
+        return data[`timeline_explanation`];
+    }
+
     static async addClue(level){
 
         const data = JSON.parse(await readFile('./db.json', 'utf-8'));

@@ -130,7 +130,7 @@ window.addEventListener('keydown', (e)=>{
                 riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>[...] start typing`;
             }
             else if(riddleW.type == 2){
-                document.getElementById(`band${riddleW.Sequence_col}`).style.backgroundColor = 'red';
+                document.getElementById(`band${riddleW.Sequence_col}`).style.backgroundColor = '#c7c7c7';
                 riddle_content.innerHTML = `press [Esc] to leave<br>press [Enter] to submit<br>Use [a,w,s,d] to find the right combination`;
             }
             else{

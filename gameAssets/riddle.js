@@ -66,7 +66,7 @@ export class riddle{
             }
 
             if(i == 2){
-                stub.style.backgroundColor = 'red';
+                stub.style.backgroundColor = '#c7c7c7';
                 stub.classList.add('selected')
             }
             
@@ -93,7 +93,7 @@ export class riddle{
                 break;
         }
 
-        document.querySelector(`.stub${this.MCQ_state}`).style.backgroundColor = 'red';
+        document.querySelector(`.stub${this.MCQ_state}`).style.backgroundColor = '#c7c7c7';
         document.querySelector(`.stub${this.MCQ_state}`).classList.add('selected');
     }
 
@@ -158,14 +158,14 @@ export class riddle{
                 this.Sequence_col--;
                 this.Sequence_col = (this.Sequence_col == -1) ? 2 : this.Sequence_col;
 
-                document.getElementById(`band${this.Sequence_col}`).style.backgroundColor = 'red';
+                document.getElementById(`band${this.Sequence_col}`).style.backgroundColor = '#c7c7c7';
                 break;
 
             case 'd':
                 document.getElementById(`band${this.Sequence_col}`).style.backgroundColor = 'white';
                 this.Sequence_col = (this.Sequence_col+1)%3;
 
-                document.getElementById(`band${this.Sequence_col}`).style.backgroundColor = 'red';
+                document.getElementById(`band${this.Sequence_col}`).style.backgroundColor = '#c7c7c7';
                 break;
 
             case 's':
