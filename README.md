@@ -38,11 +38,10 @@ Each chapter presents a corridor with environmental hints, illusions, and system
 ---
 
 ## Screenshots
-```md
 ![Screenshot 1](resources/screenshot1.png)
 ![Screenshot 2](resources/screenshot2.png)
 ![Screenshot 3](resources/screenshot3.png)
-```
+
 ---
 
 ## Setup & Installation
