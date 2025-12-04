@@ -47,7 +47,7 @@ document.addEventListener('keydown', (e)=>{
             break;
 
         case 'Space':
-            if(document.getElementById(`l${currentLevel}`).classList.contains('blocked')){
+            if(document.getElementById(`l${currentLevel}`).classList.contains('blocked') || currentLevel == 16){
                 return;
             }
             ipcRenderer.send(`start-level`, [currentLevel]);

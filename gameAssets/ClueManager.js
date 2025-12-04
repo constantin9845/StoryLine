@@ -27,7 +27,7 @@ export default class ClueManager {
         for (let i = 0; i < this.clues.length; i++) {
             const [offset, text] = this.clues[i];
 
-            if (Math.abs(mid + offset - playerX) < 30) {
+            if (Math.abs(mid + offset - playerX) < 100) {
                 this.clueElement.innerHTML = text;
                 this.clueElement.style.opacity = "1";
                 return;

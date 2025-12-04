@@ -3,6 +3,7 @@ import { DB } from '../gameAssets/db_handler.js';
 
 let cluesData = [];
 let solution = [];
+let explanation;
 
 getClues();
 
@@ -48,10 +49,12 @@ document.addEventListener('keydown', (e)=>{
                     return;
                 }
                 if(queueWindow){
-                    if(queue.length >= 1){
-                        document.getElementById(`pin${queue[0]}`).style.backgroundColor = '#f78b8b';
-                    }
                     document.querySelector('.found-clues').style.opacity = '0.1';
+                    
+                    if(queue.length >= 1){
+                        document.getElementById(`pin${queue[currentPin-1]}`).style.backgroundColor = '#f78b8b';
+                    }
+
                     return;
                 }
 
@@ -133,7 +136,7 @@ document.addEventListener('keydown', (e)=>{
             case 'Enter':
 
                 if(checkSolution()){
-                    alert('Game Completed');
+                    alert(explanation);
                 }
                 else{
                     alert("Wrong combination");
@@ -257,6 +260,8 @@ async function getClues(){
     let completed = await DB.checkFound();
     solution = await DB.solution();
 
+    explanation = await DB.explain();
+
 
     for(let i = 0; i < completed; i++){
         cluesData.push([clues[i], i+1]);
@@ -371,7 +376,6 @@ function removePin(level){
             document.getElementById(`pin${queue[level-2]}`).style.backgroundColor = '#f78b8b';
             currentPin = level-1;
         }
-        
     }
 }
 
