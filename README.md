@@ -28,7 +28,7 @@ Each chapter presents a corridor with environmental hints, illusions, and system
 - Environmental storytelling
 - Interactive end-of-level questions
 - Logical chain-based final ending
-- 16 levels across 3 narrative chapters
+- 15 levels across 3 narrative chapters
 
 ### Controls:
 - **WASD:** Move
