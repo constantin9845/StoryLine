@@ -1,6 +1,6 @@
 Level 1: The Knight’s Chamber
 
-Scene: Xiaolin wakes up in a medieval knight’s room. Stone walls, flickering candles, and armor line the walls — but something feels off.
+Scene: Xiaolin wakes up in a medieval knight’s dungeon. Stone walls, flickering candles, and armor line the walls but something feels off.
 Irregularities:
 	1.	A Starbucks coffee cup sits on the wooden desk.
 	2.	A digital clock blinks “7:43” beside a pile of scrolls.
