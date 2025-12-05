@@ -1,8 +1,8 @@
-Scene:
-Seoul streets, ancient buildings mixed with modern scenery.
-Irregularities (items):
-1. Electric skateboard on the street
-2. A steaming cup of coffee on a tea stall
-3. A smartphone dropped on the stone road
+Level 7: Robotic Mess
+CyberPunk city with a hint of the Medieval age.
+Irregularities:
+1. A newly built medieval well.
+2. An AI Robot chattering in old language.
+3. A stone road with wodden sign in the middle of a skyscrapper.
 Story Hint:
-Xiaolin: The streets are full of modern stuff—everything is completely messed up!
+Xiaolin: The streets are full of medieval-stuff, everything is completely messed up!
