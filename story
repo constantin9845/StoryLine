@@ -1,6 +1,6 @@
-Level 1: The Knight’s Chamber
+Level 1: The Dr and The System
 
-Scene: Xiaolin wakes up in a medieval knight’s dungeon and also a scientific lab?! Stone walls, flickering candles, and armor line the walls but something feels off.
+Scene: Dr Li An wakes up in a medieval knight’s dungeon and also a scientific lab?! Stone walls, flickering candles, and armor line the walls but something feels off.
 Irregularities:
 	1.	A Starbucks coffee cup sits on the wooden desk.
 	2.	A digital clock blinks “7:43” beside a pile of scrolls.
