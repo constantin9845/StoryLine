@@ -1,7 +1,7 @@
 Level 3: The Vault
 
-Scene: The machine seems to know who Xiaolin is.
+Scene: The machine seems to know who Dr Li An is.
 Irregularities:
-	1.	Xiaolin is speaking to himself
+	1.	Dr Li An is speaking to himself
 Story hint:
-Xiaolin: “Why does the voice sounds so familiar”
+Dr Li An: “Why does the voice sounds so familiar”
