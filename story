@@ -1,6 +1,6 @@
 Level 5: The Town Square Rift
 
-Scene: Xiaolin steps into a foggy town square where knights, monks, and peasants gather around a fire. Everything seems ordinary… until he looks closer and suddenly he's inside a futuristic city!
+Scene: Xiaolin steps into a foggy room. Everything seems ordinary… until he looks closer and suddenly he's inside a futuristic city!
 Irregularities:
 	1.	A microwave sits beside the campfire.
 	2.	Skyscrapper and medieval tavern all in the same place.
