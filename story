@@ -1,8 +1,7 @@
-Level 2: The Market of Time
+Level 2: The Time Machine
 
-Scene: Xiaolin steps out of the chamber and finds himself in a bustling medieval market. Merchants shout, horses trot, and bread is baking yet the scene hides oddities.
+Scene: E072,,,,,
 Irregularities:
-	1.	A merchant carries a plastic shopping bag with a modern logo.
-	2.	A shiny bicycle leans against a stone wall.
+	1.	A machine keeps beeping E-072
 Story hint:
-Xiaolin: “plastic bags in a medieval market? Time’s all tangled up!”
+Xiaolin: E-072?
