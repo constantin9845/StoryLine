@@ -1,9 +1,7 @@
-Level 4: The Tavern and The Workshop
+Level 4: The Present, Future and Past
 
-Scene: Sawdust fills the air. The rhythmic sound of the bard is all in the air but it all looked far too advanced.
+Scene: The machine recognize Xiaolin, but only parts of him
 Irregularities:
-	1.	The carpenter is using an electric drill.
-	2.	The Bard using an electric guitar
-	3.	An apprentice is secretly playing a PLayStation
+	1.	Delayed footsteps of himself echoes through the hall
 Story hint:
-Xiaolin: “A toaster in the Middle Ages? I’m not fixing furniture here — I’m fixing time!”
+Xiaolin: “What kind sick twisted place is this, why is the machine copying me”
