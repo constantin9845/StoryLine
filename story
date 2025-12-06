@@ -1,8 +1,7 @@
 Level 7: Robotic Mess
-CyberPunk city with a hint of the Medieval age.
+A robot worker moving in a synchronize order and looks very odd.
 Irregularities:
-1. A newly built medieval well.
-2. An AI Robot chattering in old language.
-3. A stone road with wodden sign in the middle of a skyscrapper.
+1. An AI Robot chattering in old language.
+2. AI Robot seems to not care about anything else
 Story Hint:
-Xiaolin: The streets are full of medieval-stuff, everything is completely messed up!
+Dr Li An: "I need to restore the system before things get even worse"
