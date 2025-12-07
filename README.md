@@ -55,8 +55,8 @@ Download it from the official website: https://nodejs.org/
 
 ### 2. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone git@github.com:constantin9845/StoryLine.git
+cd Storyline/
 ```
 
 ### 3. Install Dependencies
@@ -67,5 +67,5 @@ npm i
 
 ### 4. Start the Development Server
 ```bash
-npm run start
+npm start
 ```
