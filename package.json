@@ -1,7 +1,7 @@
 {
   "name": "storyline",
   "version": "1.0.0",
-  "description": "",
+  "description": "Storyline game for software development practices",
   "homepage": "https://github.com/constantin9845/StoryLine#readme",
   "bugs": {
     "url": "https://github.com/constantin9845/StoryLine/issues"
@@ -16,11 +16,9 @@
   "main": "index.js",
   "scripts": {
     "prestart": "node test.js",
-    "start": "electron .",
-    "build": "electron-builder"
+    "start": "electron ."
   },
-  "dependencies": {
-    "electron": "^39.0.0",
-    "electron-builder": "^26.0.12"
+  "devDependencies": {
+    "electron": "^39.0.0"
   }
 }
