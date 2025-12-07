@@ -106,7 +106,7 @@ function menuEffect(prev, next, state){
     prev.style.backgroundImage = "url('#')"; 
     switch(state){
         case 0:
-            next.style.backgroundImage = "url('resources/img1.jpg')";
+            next.style.backgroundImage = `url('resources/img1.jpg')`;
             break;
 
         case 1:

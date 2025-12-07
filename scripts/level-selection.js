@@ -48,6 +48,10 @@ document.addEventListener('keydown', (e)=>{
 
         case 'Space':
             if(document.getElementById(`l${currentLevel}`).classList.contains('blocked') || currentLevel == 16){
+                if(currentLevel == 16){
+                    ipcRenderer.send('story-page')
+                }
+                
                 return;
             }
             ipcRenderer.send(`start-level`, [currentLevel]);

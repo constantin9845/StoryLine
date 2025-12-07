@@ -1,6 +1,7 @@
 const { ipcRenderer } = require('electron');
 import { DB } from '../gameAssets/db_handler.js';
 
+
 let cluesData = [];
 let solution = [];
 let explanation;
