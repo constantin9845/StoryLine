@@ -14,7 +14,7 @@ Your goal: uncover the truth, recover your identity, and escape — before the s
 - **Li Songyao** - Visual Design Team
 - **Wang Yongyi** - Visual Design Team
 - **Klarissa Witania** - UI/UX and Frontend Designer
-- **Amir Binamirhamzah** - Gameplay Developer
+- **Amir Hazif Dahnill** - Gameplay Developer
 
 ---
 
